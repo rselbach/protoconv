@@ -38,14 +38,21 @@ func StringVal(val string) *structpb.Value {
 	}
 }
 
-// AsString returns value as a string
-func AsString(value *structpb.Value) (string, error) {
+// IsString tests if the value is a StringValue
+func IsString(value *structpb.Value) bool {
+	_, ok := value.Kind.(*structpb.Value_StringValue)
+	return ok
+}
+
+// AsString returns value as a string. If value does
+// not hold a string, returns the empty string
+func AsString(value *structpb.Value) string {
 	s, ok := value.Kind.(*structpb.Value_StringValue)
 	if !ok {
-		return "", errors.New("value is not a string value")
+		return ""
 	}
 
-	return s.StringValue, nil
+	return s.StringValue
 }
 
 // StringValue returns the String as a Value_StringValue

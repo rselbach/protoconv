@@ -17,10 +17,7 @@ func TestTraverseListValue(t *testing.T) {
 	sum := 0
 	list.Traverse(func(val *structpb.Value) error {
 		count++
-		nn := protoconv.NewNumber()
-		nn.SetValue(val)
-		sum += nn.Int()
-
+		sum += protoconv.Int(val)
 		return nil
 	})
 	if count != 10 {
@@ -61,15 +58,7 @@ func ExampleList_Traverse() {
 	// numbers in it
 	sum := 0
 	err := list.Traverse(func(val *structpb.Value) error {
-		// convert the value to an int
-		n, err := protoconv.Int(val)
-		if err != nil {
-			// if there's an error, the traverse will stop here
-			return err
-		}
-
-		sum += n
-
+		sum += protoconv.Int(val)
 		return nil
 	})
 

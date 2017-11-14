@@ -23,6 +23,12 @@ func (lv List) Value() *structpb.Value {
 	}
 }
 
+// IsList tests if the value is of type ListValue
+func IsList(value *structpb.Value) bool {
+	_, ok := value.Kind.(*structpb.Value_StructValue)
+	return ok
+}
+
 // SetValue sets the value of the List
 func (lv *List) SetValue(value *structpb.Value) error {
 	list, ok := value.Kind.(*structpb.Value_ListValue)

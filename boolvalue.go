@@ -44,13 +44,20 @@ func BoolVal(val bool) *structpb.Value {
 	}
 }
 
-// Bool returns value as an bool
-func Bool(value *structpb.Value) (bool, error) {
+// IsBool tests whether value is of type BoolValue
+func IsBool(value *structpb.Value) bool {
+	_, ok := value.Kind.(*structpb.Value_BoolValue)
+	return ok
+}
+
+// Bool returns value as an bool. If value is
+// not a BoolValue, the function returns false
+func Bool(value *structpb.Value) bool {
 	bv, ok := value.Kind.(*structpb.Value_BoolValue)
 	if !ok {
-		return false, errors.New("value is not boolean")
+		return false
 	}
-	return bv.BoolValue, nil
+	return bv.BoolValue
 }
 
 // Bool returns the value of Number as an bool

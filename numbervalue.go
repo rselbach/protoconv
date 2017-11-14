@@ -33,6 +33,12 @@ func (n *Number) SetValue(value *structpb.Value) error {
 	return nil
 }
 
+// IsNumber tests whether value is a NumberValue
+func IsNumber(value *structpb.Value) bool {
+	_, ok := value.Kind.(*structpb.Value_NumberValue)
+	return ok
+}
+
 // Int32Val creates a new Value with val
 func Int32Val(val int32) *structpb.Value {
 	return &structpb.Value{
@@ -42,13 +48,14 @@ func Int32Val(val int32) *structpb.Value {
 	}
 }
 
-// Int32 returns value as an int32
-func Int32(value *structpb.Value) (int32, error) {
+// Int32 returns value as an int32. If the value is
+// not a NumberValue, returns 0
+func Int32(value *structpb.Value) int32 {
 	nv, ok := value.Kind.(*structpb.Value_NumberValue)
 	if !ok {
-		return 0, errors.New("value is not numeric")
+		return 0
 	}
-	return int32(nv.NumberValue), nil
+	return int32(nv.NumberValue)
 }
 
 // Int32 returns the value of Number as an int32
@@ -71,13 +78,14 @@ func Int64Val(val int64) *structpb.Value {
 	}
 }
 
-// Int64 returns value as an int64
-func Int64(value *structpb.Value) (int64, error) {
+// Int64 returns value as an int64. If the value is not
+// a NumberValue, returns 0
+func Int64(value *structpb.Value) int64 {
 	nv, ok := value.Kind.(*structpb.Value_NumberValue)
 	if !ok {
-		return 0, errors.New("value is not numeric")
+		return 0
 	}
-	return int64(nv.NumberValue), nil
+	return int64(nv.NumberValue)
 }
 
 // Int64 returns the value of Number as an int64
@@ -100,13 +108,14 @@ func IntVal(val int) *structpb.Value {
 	}
 }
 
-// Int returns value as an int
-func Int(value *structpb.Value) (int, error) {
+// Int returns value as an int. If value is not
+// a NumberValue, returns 0
+func Int(value *structpb.Value) int {
 	nv, ok := value.Kind.(*structpb.Value_NumberValue)
 	if !ok {
-		return 0, errors.New("value is not numeric")
+		return 0
 	}
-	return int(nv.NumberValue), nil
+	return int(nv.NumberValue)
 }
 
 // Int returns the value of Number as an int
@@ -129,13 +138,14 @@ func Uint32Val(val uint32) *structpb.Value {
 	}
 }
 
-// Uint32 returns value as an uint32
-func Uint32(value *structpb.Value) (uint32, error) {
+// Uint32 returns value as an uint32. If value is not a
+// NumberValue, returns 0
+func Uint32(value *structpb.Value) uint32 {
 	nv, ok := value.Kind.(*structpb.Value_NumberValue)
 	if !ok {
-		return 0, errors.New("value is not numeric")
+		return 0
 	}
-	return uint32(nv.NumberValue), nil
+	return uint32(nv.NumberValue)
 }
 
 // Uint32 returns the value of Number as an uint32
@@ -158,13 +168,14 @@ func Uint64Val(val uint64) *structpb.Value {
 	}
 }
 
-// Uint64 returns value as an uint64
-func Uint64(value *structpb.Value) (uint64, error) {
+// Uint64 returns value as an uint64. If value is not
+// a NumberValue, returns 0
+func Uint64(value *structpb.Value) uint64 {
 	nv, ok := value.Kind.(*structpb.Value_NumberValue)
 	if !ok {
-		return 0, errors.New("value is not numeric")
+		return 0
 	}
-	return uint64(nv.NumberValue), nil
+	return uint64(nv.NumberValue)
 }
 
 // Uint64 returns the value of Number as an uint64
@@ -187,13 +198,14 @@ func UintVal(val uint) *structpb.Value {
 	}
 }
 
-// Uint returns value as an uint
-func Uint(value *structpb.Value) (uint, error) {
+// Uint returns value as an uint. If value is not
+// a NumberValue, returns 0
+func Uint(value *structpb.Value) uint {
 	nv, ok := value.Kind.(*structpb.Value_NumberValue)
 	if !ok {
-		return 0, errors.New("value is not numeric")
+		return 0
 	}
-	return uint(nv.NumberValue), nil
+	return uint(nv.NumberValue)
 }
 
 // Uint returns the value of Number as an uint
@@ -216,13 +228,14 @@ func Float32Val(val float32) *structpb.Value {
 	}
 }
 
-// Float32 returns value as an float32
-func Float32(value *structpb.Value) (float32, error) {
+// Float32 returns value as an float32. If value is
+// not a NumberValue, returns 0
+func Float32(value *structpb.Value) float32 {
 	nv, ok := value.Kind.(*structpb.Value_NumberValue)
 	if !ok {
-		return 0, errors.New("value is not numeric")
+		return 0
 	}
-	return float32(nv.NumberValue), nil
+	return float32(nv.NumberValue)
 }
 
 // Float32 returns the value of Number as an float32
@@ -245,13 +258,14 @@ func Float64Val(val float64) *structpb.Value {
 	}
 }
 
-// Float64 returns value as an float64
-func Float64(value *structpb.Value) (float64, error) {
+// Float64 returns value as an float64. If the value is
+// not a NumberValue, returns 0
+func Float64(value *structpb.Value) float64 {
 	nv, ok := value.Kind.(*structpb.Value_NumberValue)
 	if !ok {
-		return 0, errors.New("value is not numeric")
+		return 0
 	}
-	return nv.NumberValue, nil
+	return nv.NumberValue
 }
 
 // Float64 returns the value of Number as an float64
