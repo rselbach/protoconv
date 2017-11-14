@@ -100,21 +100,3 @@ type ProtoValuer interface {
 	Value() *structpb.Value
 	SetValue(*structpb.Value) error
 }
-
-func Test() {
-	list := NewList()
-	for i := 0; i < 2; i++ {
-		list.Append(IntVal(i))
-	}
-
-	listVal := val.Kind.(*structpb.Value_ListValue)
-	for _, v := range listVal.ListValue.Values {
-		nv := v.Kind.(*structpb.Value_NumberValue)
-		ilist = append(ilist, int(nv.NumberValue))
-	}
-
-	var ilist []int
-	for _, v := range list.Values() {
-		ilist = append(ilist, Int(v))
-	}
-}
