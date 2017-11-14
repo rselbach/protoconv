@@ -34,7 +34,7 @@ And getting an `int` from a `Value` from this --
 ```
 v, ok := val.Kind.(*structpb.Value_NumberValue)
 if !ok {
-    panic(err)
+    // do something
 }
 i := int(v.NumberValue)
 ```
@@ -42,7 +42,7 @@ i := int(v.NumberValue)
 To this --
 
 ```
-i, err := protoconv.Int(val)
+i := protoconv.Int(val)
 ```
 
 In short, helper functions to help converting from `struct.Value` to
