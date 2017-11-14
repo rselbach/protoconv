@@ -113,3 +113,8 @@ func AppendValue(lv *structpb.Value, val *structpb.Value) error {
 	list.ListValue.Values = append(list.ListValue.Values, val)
 	return nil
 }
+
+// Values returns the list of Values in the list
+func (lv *List) Values() []*structpb.Value {
+	return lv.values
+}
