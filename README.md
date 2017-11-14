@@ -11,7 +11,7 @@ often need quite a lot of boilerplate for simple operations.
 ## Documentation
 
 You can find the full documentation on
-[godoc](https://godoc.org/github.com/robteix/protoconv). 
+[godoc](https://godoc.org/github.com/rselbach/protoconv). 
 
 The purpose of this package is to turn something like this --
 
