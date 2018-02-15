@@ -1,6 +1,7 @@
 package protoconv_test
 
 import (
+	"log"
 	"testing"
 
 	structpb "github.com/golang/protobuf/ptypes/struct"
@@ -65,4 +66,5 @@ func ExampleList_Traverse() {
 	if err != nil {
 		panic(err)
 	}
+	log.Println(sum)
 }
