@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	structpb "github.com/golang/protobuf/ptypes/struct"
-	"github.com/rselbach/protoconv"
+	"go.rst.sh/protoconv"
 )
 
 func TestTraverseListValue(t *testing.T) {

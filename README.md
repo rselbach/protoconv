@@ -1,7 +1,6 @@
 protoconv
 =========
 
-
 `protoconv` is a Go package providing helper functions to convert between
 Go types and `struct.Value` and its related types.
 
@@ -11,7 +10,11 @@ often need quite a lot of boilerplate for simple operations.
 ## Documentation
 
 You can find the full documentation on
-[godoc](https://godoc.org/github.com/rselbach/protoconv). 
+[godoc](https://godoc.org/go.rst.sh/protoconv). 
+
+Installation --
+
+    go get -u go.rst.sh/protoconv
 
 The purpose of this package is to turn something like this --
 
