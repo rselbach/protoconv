@@ -10,11 +10,11 @@ often need quite a lot of boilerplate for simple operations.
 ## Documentation
 
 You can find the full documentation on
-[godoc](https://godoc.org/go.rst.sh/protoconv). 
+[godoc](https://godoc.org/github.com/robteix/protoconv). 
 
 Installation --
 
-    go get -u go.rst.sh/protoconv
+    go get -u github.com/robteix/protoconv
 
 The purpose of this package is to turn something like this --
 
